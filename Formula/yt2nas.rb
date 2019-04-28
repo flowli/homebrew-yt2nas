@@ -7,4 +7,7 @@ class Yt2nas Formula
   def install
      bin.install "yt2nas"
   end
+
+  def desc
+  end
 end
