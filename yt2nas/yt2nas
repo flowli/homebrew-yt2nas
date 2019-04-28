@@ -1,0 +1,27 @@
+#!/bin/bash
+
+## A) prepare
+
+# 1. temp folder
+DL="/tmp/yt2nas"
+rm -f "$DL/*"
+mkdir -p "$DL"
+
+# 2. params
+URL="$1"
+if [ -z "$1" ]; then
+	echo "Syntax: $0 <youtube-url>"
+	exit 2
+fi
+
+
+## B) action!
+
+# 1. download video
+(cd "$DL" && youtube-dl -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]' "$1")
+
+# 2. copy video
+(cd "$DL" && scp * nas:/share/CACHEDEV1_DATA/homes/fa/)
+
+# 3. remove video
+(cd "$DL" && rm *)
