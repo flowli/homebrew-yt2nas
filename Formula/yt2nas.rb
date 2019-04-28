@@ -1,4 +1,4 @@
-class Yt2nas Formula
+class Yt2nas < Formula
   desc "Downloads at YT video and uploads it to the NAS"
   homepage "https://arweb.de"
   version "0.1"
@@ -6,8 +6,5 @@ class Yt2nas Formula
 
   def install
      bin.install "yt2nas"
-  end
-
-  def desc
   end
 end
